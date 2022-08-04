@@ -21,9 +21,9 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 // enables environment variables by
 // parsing the .env file and assigning it to process.env
-dotenv.config({
-  path: "./.env",
-});
+// dotenv.config({
+//   path: "./.env",
+// });
 
 // Adyen Node.js API library boilerplate (configuration, etc.)
 const config = new Config();
