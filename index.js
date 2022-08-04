@@ -60,7 +60,7 @@ app.post("/api/sessions", async (req, res) => {
     const protocol = req.socket.encrypted? 'https' : 'http';
     // Ideally the data passed here should be computed based on business logic
     const response = await checkout.sessions({
-      amount: { currency: "USD", value: 1000 }, // value is 10€ in minor units
+      amount: { currency: "USD", value: 2000 }, // value is 10€ in minor units
       countryCode: "NL",
       merchantAccount: process.env.ADYEN_MERCHANT_ACCOUNT, // required
       reference: orderRef, // required: your Payment Reference
