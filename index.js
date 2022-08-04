@@ -19,7 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 // Serve client from build folder
 app.use(express.static(path.join(__dirname, "/public")));
 
-console.log(process.env.ADYEN_CLIENT_KEY)
 
 
 // enables environment variables by
@@ -27,6 +26,7 @@ console.log(process.env.ADYEN_CLIENT_KEY)
 // dotenv.config({
 //   path: "./.env",
 // });
+
 
 // Adyen Node.js API library boilerplate (configuration, etc.)
 const config = new Config();
@@ -60,7 +60,7 @@ app.post("/api/sessions", async (req, res) => {
     const protocol = req.socket.encrypted? 'https' : 'http';
     // Ideally the data passed here should be computed based on business logic
     const response = await checkout.sessions({
-      amount: { currency: "EUR", value: 1000 }, // value is 10€ in minor units
+      amount: { currency: "CAD", value: 1000 }, // value is 10€ in minor units
       countryCode: "NL",
       merchantAccount: process.env.ADYEN_MERCHANT_ACCOUNT, // required
       reference: orderRef, // required: your Payment Reference
