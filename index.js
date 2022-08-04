@@ -19,6 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 // Serve client from build folder
 app.use(express.static(path.join(__dirname, "/public")));
 
+console.log(process.env.ADYEN_CLIENT_KEY)
+
+
 // enables environment variables by
 // parsing the .env file and assigning it to process.env
 // dotenv.config({
@@ -117,7 +120,6 @@ app.get("/", (req, res) => res.render("index"));
 
 // Cart (continue to checkout)
 app.get("/preview", (req, res) =>
-console.log(process.env.ADYEN_CLIENT_KEY),
   res.render("preview", {
     type: req.query.type,
   })
