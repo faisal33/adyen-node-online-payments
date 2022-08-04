@@ -117,6 +117,7 @@ app.get("/", (req, res) => res.render("index"));
 
 // Cart (continue to checkout)
 app.get("/preview", (req, res) =>
+console.log(process.env.ADYEN_CLIENT_KEY),
   res.render("preview", {
     type: req.query.type,
   })
